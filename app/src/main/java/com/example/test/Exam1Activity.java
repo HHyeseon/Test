@@ -9,6 +9,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.support.v7.widget.helper.ItemTouchHelper;
 
 
 import java.util.ArrayList;
@@ -34,6 +35,7 @@ public class Exam1Activity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(myRecyclerViewAdapter);
+        new ItemTouchHelper(new MyRecyclerViewTouchCallback()).attachToRecyclerView(recyclerView);
 
         Button b = (Button)findViewById(R.id.btnAdd);
         b.setOnClickListener(new View.OnClickListener() {

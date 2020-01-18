@@ -18,16 +18,21 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Intent intent = getIntent(); //데이터 수신
+        Intent intent = this.getIntent(); //데이터 수신
+        Bundle bundle = intent.getExtras();
 
-        String txt1= intent.getExtras().getString("content1");
-        TextView t1 = (TextView)findViewById(R.id.textView1);
-        t1.setText(txt1);
+        if(bundle != null){
+            String txt1= intent.getStringExtra("content1");
+            TextView t1 = (TextView)findViewById(R.id.textView1);
+            t1.setText(String.valueOf(txt1));
+      //  t1.setText(txt1);
 
-        String txt2= intent.getExtras().getString("content2");
-        TextView t2 = (TextView)findViewById(R.id.textView2);
-        t2.setText(txt2);
 
+            String txt2= intent.getStringExtra("content2");
+            TextView t2 = (TextView)findViewById(R.id.textView2);
+           t2.setText(String.valueOf(txt2));
+       //    t2.setText(txt2);
+        }
 
         Button button = (Button)findViewById(R.id.exam1);
         View.OnClickListener listener = new View.OnClickListener() {

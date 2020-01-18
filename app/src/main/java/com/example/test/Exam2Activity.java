@@ -9,39 +9,43 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 public class Exam2Activity extends AppCompatActivity {
-    EditText editText_content = (EditText) findViewById(R.id.editText2);
-    EditText editText_content2 = (EditText) findViewById(R.id.editText3);
+    EditText editText_content;
+    EditText editText_content2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_exam2);
 
+         editText_content = (EditText) findViewById(R.id.editText2);
+         editText_content2 = (EditText) findViewById(R.id.editText3);
+
         Button button = (Button)findViewById(R.id.button);      //저장
-        View.OnClickListener listener = new View.OnClickListener() {
-            @Override
-            public void onClick(View arg0) {
+            button.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
 
-                String content1 = editText_content.getText().toString();
-                String content2 = editText_content2.getText().toString();
+                    Intent intent = new Intent(Exam2Activity.this, MainActivity.class);
+                    intent.putExtra("content1", editText_content.getText().toString());
+                    intent.putExtra("content2", editText_content2.getText().toString());
+                    startActivity(intent);
 
-                Intent intent = new Intent(Exam2Activity.this, MainActivity.class);
-                intent.putExtra("content1", content1);
-                intent.putExtra("content2", content2);
-                startActivity(intent);
-            }
-        };
-        button.setOnClickListener(listener);
+                }
+            });
+
+
 
         Button button2 = (Button)findViewById(R.id.button2);            //취소
-        View.OnClickListener listener2 = new View.OnClickListener() {
+        button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View arg0) {
 
                 Intent intent = new Intent(Exam2Activity.this, MainActivity.class);
+                intent.putExtra("content1", editText_content.getText().toString());
+                intent.putExtra("content2", editText_content2.getText().toString());
                 startActivity(intent);
             }
-        };
-        button.setOnClickListener(listener2);
+        });
+
     }
 }
