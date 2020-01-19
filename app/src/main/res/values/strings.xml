@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">test</string>
-    <string name="ok">확인</string>
+    <string name="test">시험</string>
+    <string name="data">데이터 입력</string>
+    <string name="one">하나</string>
+    <string name="two">둘</string>
 </resources>
